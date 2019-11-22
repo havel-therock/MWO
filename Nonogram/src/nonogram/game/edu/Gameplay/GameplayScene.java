@@ -30,6 +30,7 @@ public class GameplayScene  extends Application {
         canvas.setHeight(300);
         GraphicsContext gc = canvas.getGraphicsContext2D();
         //canvas.setOn
+         /*
         canvas.setOnMouseClicked(e -> {
             if(e.isPrimaryButtonDown()){
                 gc.setFill(Color.BLUEVIOLET);
@@ -42,7 +43,7 @@ public class GameplayScene  extends Application {
                     gc.fillRect(e.getX(),e.getY(),100, 100);
                 }
             }
-        });
+        });*/
         // Get the graphics context of the canvas
 
         // Draw a Text

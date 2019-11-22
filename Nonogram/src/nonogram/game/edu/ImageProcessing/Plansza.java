@@ -5,9 +5,9 @@ package nonogram.game.edu.ImageProcessing;
 
 public class Plansza {
 
-    int rozmiar;
-    int info[][];
-    boolean wypelnienie[][];
+    public int rozmiar;
+    public int info[][];
+    public boolean wypelnienie[][];
 
     public Plansza(int size) {
         this.rozmiar = size;

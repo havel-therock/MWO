@@ -7,8 +7,10 @@ import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.geometry.Insets;
+import nonogram.game.edu.Gameplay.GameScene;
+import nonogram.game.edu.Gameplay.GameplayScene;
 
-
+import java.lang.reflect.Executable;
 
 
 public class MainMenu extends Application {
@@ -22,9 +24,8 @@ public class MainMenu extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage){
         window = primaryStage;
-
 
         //Layout 1 - Menu
         HBox Menu = new HBox();
@@ -37,7 +38,13 @@ public class MainMenu extends Application {
         buttonStatystyki.setOnAction(e -> window.setScene(scene7));
         Button buttonOpcjeRozgrywki = new Button("Opcje rozgrywki");
         Button buttonSzybkaGra = new Button("Szybka gra");
-        buttonSzybkaGra.setOnAction(e -> window.setScene(scene5));
+        buttonSzybkaGra.setOnAction(e -> {
+            try {
+                new GameScene(window);
+            }catch (Exception ex){
+
+            }
+        });
         buttonOpcjeRozgrywki.setOnAction(e -> window.setScene(scene8));
         Menu.getChildren().addAll(buttonNowaGra,buttonWczytajGre,buttonStatystyki, buttonOpcjeRozgrywki, buttonSzybkaGra);
         Menu.setPadding(new Insets(10, 40, 10, 50));
