@@ -10,6 +10,7 @@ import javafx.geometry.Insets;
 import nonogram.game.edu.Gameplay.GameScene;
 import nonogram.game.edu.Gameplay.GameSettings;
 import nonogram.game.edu.Gameplay.GameplayScene;
+import nonogram.game.edu.ImageProcessing.Plansza;
 
 import java.lang.reflect.Executable;
 
@@ -55,10 +56,22 @@ public class MainMenu extends Application {
 
         // Layout 2 Nowa gra
         HBox NowaGra = new HBox();
-        Button buttonPowrotdoMenu1 = new Button("PowrÃ³t do Menu");
+        Button buttonPowrotdoMenu1 = new Button("Powrót do Menu");
         buttonPowrotdoMenu1.setOnAction(e -> window.setScene(MenuScene));
-        Button buttonWyborRozmiaru = new Button("WybÃ³r rozmiaru planszy");
-        buttonWyborRozmiaru.setOnAction(e -> window.setScene(scene4));
+        Button buttonWyborRozmiaru = new Button("Wybór w³asnego obrazka");
+        buttonWyborRozmiaru.setOnAction(e -> {
+        	try {
+        		
+        		Plansza ps  = new Plansza(10);
+        		
+        		GameSettings gs = new GameSettings();
+        		gs.p = ps;
+                new GameScene(window, gs, MenuScene);
+            }catch (Exception ex){
+
+            }
+        	 
+        });
         NowaGra.getChildren().addAll(buttonPowrotdoMenu1,buttonWyborRozmiaru);
         NowaGra.setPadding(new Insets(10, 40, 10, 90));
         NowaGra.setSpacing(15);
