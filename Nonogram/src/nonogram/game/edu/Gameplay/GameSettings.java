@@ -5,7 +5,7 @@ import nonogram.game.edu.ImageProcessing.Plansza;
 
 public class GameSettings {
 
-    Plansza p;
+    public Plansza p;
     Color netColor;
     Color squareColor;
     Color bgColor;
