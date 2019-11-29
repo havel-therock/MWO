@@ -7,11 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
+import sun.awt.X11.XButtonPeer;
 
 
 public class GameplayScene  extends Application {
@@ -25,10 +26,9 @@ public class GameplayScene  extends Application {
         BorderPane root = Loader.load();
         //root.getLeft().setStyle();
         //root.getRight().autosize();
-        Canvas canvas = new Canvas();
-        canvas.setWidth(400);
-        canvas.setHeight(300);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
+        Button ext = (Button) root.getTop().lookup("exitBtn");
+        ext.autosize();
+        //ext.setText("Zmiana JOŁ");
         //canvas.setOn
          /*
         canvas.setOnMouseClicked(e -> {
@@ -47,9 +47,9 @@ public class GameplayScene  extends Application {
         // Get the graphics context of the canvas
 
         // Draw a Text
-        gc.setStroke(Color.BLUEVIOLET);
+        //gc.setStroke(Color.BLUEVIOLET);
         //gc.setFill(Color.BLUEVIOLET);
-        gc.strokeRect(0,0,canvas.getWidth(), canvas.getHeight());
+        //gc.strokeRect(0,0,canvas.getWidth(), canvas.getHeight());
         //gc.setFill(Color.YELLOW);
         //String t = "Hello Canvas";
         //gc.fillText(t, canvas.getWidth() / 2 , canvas.getHeight() / 2);
@@ -63,7 +63,7 @@ public class GameplayScene  extends Application {
                 "-fx-border-color: blue;");*/
 
         // Add the Canvas to the Pane
-        root.setCenter(canvas);
+        //root.setCenter(canvas);
         //root.getChildren().add(canvas);
 
         primaryStage.setTitle("Nonogram");

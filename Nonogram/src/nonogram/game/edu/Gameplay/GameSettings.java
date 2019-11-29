@@ -19,6 +19,8 @@ public class GameSettings {
         // p nowy kostrukotr gdzie nie podajesz rozmiaru to bez sensu
         //p = new "losowa"Plansza(); metoda losuj nową planszę
         // tmp
+       // p = new Plansza();
+       // p.losujplansze()
         p = new Plansza(15);
         p.testowaPlansza("rozgwiazda");
         //end of tmp

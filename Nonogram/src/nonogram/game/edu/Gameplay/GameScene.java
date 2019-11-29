@@ -44,6 +44,7 @@ public class GameScene{
 
         setBoardSize();
         plainBoard();
+        drawInfo();
     }
 
     private void setBoardSize(){
@@ -68,8 +69,7 @@ public class GameScene{
             setBoardSize();
             plainBoard();
             drawCurrentSate();
-            //wczytaj dotychczasowy postęp
-            //draw info
+            drawInfo();
         });
         window.widthProperty().addListener(stageSizeListener);
         window.heightProperty().addListener(stageSizeListener);
@@ -105,6 +105,7 @@ public class GameScene{
             updateSquare(countX, countY);
             net();
             System.out.println(e.getX() + " " + e.getY());
+
             if(checkWin()){
                 System.out.println("Gratulacje wygrałeś");
                 window.setScene(menu);
@@ -196,9 +197,26 @@ public class GameScene{
     }
 
     private void drawInfo(){
-        gc.setStroke(gs.infoColor);
-        gc.setFont(new Font("Verdana", 20));
-        gc.strokeText("HELLOO WORLD !!!! YEEEAH", 300, 322);
+        gc.setFill(gs.infoColor);
+        gc.setFont(new Font("Verdana", gs.BLOCK_SIZE*0.75));
+        for(int i = 0; i < gs.p.rozmiar; i++){
+            for(int j = 0; j < gs.p.info[i].length; j++){
+                if(gs.p.info[i][j] == 0){
+                    break;
+                }else{
+                    gc.fillText(String.valueOf(gs.p.info[i][j]), gs.BLOCK_SIZE * (gs.p.rozmiar + j), (gs.BLOCK_SIZE * i) + gs.BLOCK_SIZE*0.75);
+                }
+            }
+        }
+        for(int i = gs.p.rozmiar; i < 2*gs.p.rozmiar; i++){
+            for(int j = 0; j < gs.p.info[i].length; j++){
+                if(gs.p.info[i][j] == 0){
+                    break;
+                }else{
+                    gc.fillText(String.valueOf(gs.p.info[i][j]), gs.BLOCK_SIZE * (i - gs.p.rozmiar) + gs.BLOCK_SIZE*0.25, gs.BLOCK_SIZE * (gs.p.rozmiar + j + 1));
+                }
+            }
+        }
     }
 
 }
