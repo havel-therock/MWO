@@ -3,6 +3,8 @@ package nonogram.game.edu.ImageProcessing;
  * @author MD
  */
 
+import java.util.Random;
+
 public class Plansza {
 
     public int rozmiar;
@@ -42,6 +44,66 @@ public class Plansza {
       return i;
     }
 
+  public void ustawInfo()
+  {
+//    // generowanie dla pierwszej (pionowej) po�owy
+//    for (int x = 0; x < this.rozmiar; x++){
+//      int z = 0;
+//      for (int y = 0; y < this.rozmiar; y++){
+//        if (this.wypelnienie[x][y] && this.info[x][0] == 0) this.info[x][0]++;
+//        else if (this.wypelnienie[x][y]) this.info[x][z]++;
+//        else if (!this.wypelnienie[x][y] && this.info[x][0] != 0 && this.wypelnienie[x][y] != this.wypelnienie[x][y-1]) z++;
+//      }}
+//
+//    // generowanie dla drugiej (poziomej) po�owy
+//    for (int y = 0; y < this.rozmiar; y++){
+//      int z = 0;
+//      for (int x = 0; x < this.rozmiar; x++){
+//        if (this.wypelnienie[x][y] && this.info[15+y][0] == 0) this.info[15+y][0]++;
+//        else if (this.wypelnienie[x][y]) this.info[15+y][z]++;
+//        else if (!this.wypelnienie[x][y] && x != 0 && this.wypelnienie[x][y] != this.wypelnienie[x-1][y]) z++;
+//      }}
+
+    // generowanie dla pierwszej (pionowej) po�owy
+    for (int x = 0; x < this.rozmiar; x++){
+      int z = 0;
+      for (int y = this.rozmiar - 1; y >= 0; y--){
+        if (this.wypelnienie[x][y] && this.info[x][0] == 0) this.info[x][0]++;
+        else if (this.wypelnienie[x][y]) this.info[x][z]++;
+        else if (!this.wypelnienie[x][y] && this.info[x][0] != 0 && this.wypelnienie[x][y] != this.wypelnienie[x][y-1]) z++;
+      }}
+
+    // generowanie dla drugiej (poziomej) po�owy
+    for (int y = 0; y < this.rozmiar; y++){
+      int z = 0;
+      for (int x = this.rozmiar - 1; x >= 0; x++){
+        if (this.wypelnienie[x][y] && this.info[15+y][0] == 0) this.info[15+y][0]++;
+        else if (this.wypelnienie[x][y]) this.info[15+y][z]++;
+        else if (!this.wypelnienie[x][y] && x != 0 && this.wypelnienie[x][y] != this.wypelnienie[x-1][y]) z++;
+      }}
+  }
+
+    public void generujPlansze()
+    {
+      Random generator = new Random();
+      int size = 8 + Math.abs(generator.nextInt()%17);
+      System.out.println(size);
+      this.rozmiar = size;
+      this.info = new int [2*size][(size+1)/2];
+      this.wypelnienie = new boolean [size][size];
+      this.fillState = new int [size][size];
+
+      for (int i=0; i<size; i++)
+        for (int j=0; j<size; j++)
+        {
+          Random gen = new Random();
+          boolean v = gen.nextBoolean();
+          //System.out.println(v);
+          this.wypelnienie[i][j] = v;
+        }
+      this.ustawInfo();
+    }
+
     public boolean poprawneInfo()
     {
       int sum_pion = 0;
@@ -65,6 +127,36 @@ public class Plansza {
         }
       }
       return (sum_poziom == sum_pion);
+    }
+
+    public void odwrocInfo()
+    {
+      for (int i=0; i<2*this.rozmiar; i++) {
+        for (int j = 0; j < (this.rozmiar + 1) / 2; j++)
+          System.out.print(this.info[i][j] + " ");
+        System.out.println();
+      }
+
+      int tab[] = new int[2*this.rozmiar];
+      for (int i=0; i<2*this.rozmiar; i++)
+        for (int j = 0; j < (this.rozmiar + 1) / 2; j++){
+          if (this.info[i][j] > 0) tab[i]++;
+          else break;
+        }
+      for (int i=0; i<2*this.rozmiar; i++)
+        for (int j=0; j<(tab[i]+1)/2; j++){
+           int temp = this.info[i][j];
+           this.info[i][j] = this.info[i][tab[i]/2 - j];
+           this.info[i][tab[i]/2 - j] = temp;
+        }
+
+      System.out.println("\nPO:\n");
+
+      for (int i=0; i<2*this.rozmiar; i++) {
+        for (int j = 0; j < (this.rozmiar + 1) / 2; j++)
+          System.out.print(this.info[i][j] + " ");
+        System.out.println();
+      }
     }
 
     public void testowaPlansza(String c) {
