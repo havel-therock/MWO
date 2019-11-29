@@ -8,11 +8,13 @@ public class Plansza {
     public int rozmiar;
     public int info[][];
     public boolean wypelnienie[][];
+    public int fillState[][]; // 0 - bg 1 - square 2 - cross
 
     public Plansza(int size) {
         this.rozmiar = size;
         this.info = new int [2*size][(size+1)/2];
         this.wypelnienie = new boolean [size][size];
+        this.fillState = new int [size][size];
     }
 
     public Plansza zwrocInfo(Plansza p)

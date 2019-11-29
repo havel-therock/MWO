@@ -8,6 +8,7 @@ import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.geometry.Insets;
 import nonogram.game.edu.Gameplay.GameScene;
+import nonogram.game.edu.Gameplay.GameSettings;
 import nonogram.game.edu.Gameplay.GameplayScene;
 
 import java.lang.reflect.Executable;
@@ -40,7 +41,7 @@ public class MainMenu extends Application {
         Button buttonSzybkaGra = new Button("Szybka gra");
         buttonSzybkaGra.setOnAction(e -> {
             try {
-                new GameScene(window);
+                new GameScene(window, new GameSettings(), MenuScene);
             }catch (Exception ex){
 
             }

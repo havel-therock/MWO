@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplayScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplayScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplaySceneLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplaySceneLayout.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nonogram/game/edu/ImageProcessing/Plansza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nonogram/game/edu/ImageProcessing/Plansza.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nonogram/game/edu/Menu/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nonogram/game/edu/Menu/MainMenu.java" afterDir="false" />
     </list>
@@ -67,62 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplayScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1669#1670#0" expanded="true" />
-                <element signature="e#1697#1698#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplaySceneLayout.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="21" column="86" selection-start-line="21" selection-start-column="86" selection-end-line="21" selection-end-column="86" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameScene.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="53" column="85" selection-start-line="53" selection-start-column="85" selection-end-line="53" selection-end-column="85" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/ImageProcessing/Plansza.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-957">
-              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/ImageProcessing/TestPlanszy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-261">
-              <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Menu/MainMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+            <state relative-caret-position="739">
+              <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,8 +79,72 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameLoop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="145">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplaySceneLayout.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="546">
+              <caret line="21" column="86" selection-start-line="21" selection-start-column="86" selection-end-line="21" selection-end-column="86" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameScene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3843">
+              <caret line="200" column="58" selection-start-line="200" selection-start-column="58" selection-end-line="200" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameSettings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="537">
+              <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/ImageProcessing/Plansza.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2001">
+              <caret line="75" column="17" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/ImageProcessing/TestPlanszy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Menu/MainMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="928">
+              <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -148,6 +158,16 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>p.</find>
+      <find>updateSquare</find>
+      <find>drawSquare</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>gs.BLOCK_SIZE</replace>
+    </replaceStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -169,10 +189,11 @@
         <option value="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplayTest.java" />
         <option value="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplayScene_layout.fxml" />
         <option value="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameLoop.java" />
+        <option value="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplaySceneLayout.fxml" />
+        <option value="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplayScene.java" />
         <option value="$PROJECT_DIR$/src/nonogram/game/edu/ImageProcessing/Plansza.java" />
         <option value="$PROJECT_DIR$/src/nonogram/game/edu/Menu/MainMenu.java" />
-        <option value="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplayScene.java" />
-        <option value="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplaySceneLayout.fxml" />
+        <option value="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameSettings.java" />
         <option value="$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameScene.java" />
       </list>
     </option>
@@ -250,7 +271,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574446068805" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575032659409" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -410,11 +431,16 @@
       <workItem from="1574354982622" duration="4212000" />
       <workItem from="1574361657812" duration="1387000" />
       <workItem from="1574433137203" duration="12913000" />
+      <workItem from="1574618488185" duration="599000" />
+      <workItem from="1574627251273" duration="106000" />
+      <workItem from="1574800568863" duration="1987000" />
+      <workItem from="1574954113074" duration="13660000" />
+      <workItem from="1575029144014" duration="3452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26688000" />
+    <option name="totallyTimeSpent" value="46492000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -429,7 +455,7 @@
     <frame x="126" y="35" width="2434" height="1565" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18883206" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2024723" />
       <window_info id="Structure" order="1" weight="0.24968071" />
       <window_info id="Favorites" order="2" weight="0.32950193" />
       <window_info id="Designer" order="3" />
@@ -438,7 +464,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3487298" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24249423" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -449,13 +475,13 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32948422" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32948422" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32937366" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
-      <window_info anchor="bottom" id="Terminal" order="16" weight="0.32948422" />
+      <window_info anchor="bottom" id="Terminal" order="16" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24958587" />
       <window_info anchor="right" id="JetGradle" order="3" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Palette" order="5" />
@@ -528,61 +554,69 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameLoop.java">
+    <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/ImageProcessing/TestPlanszy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="348">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Menu/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        <state relative-caret-position="928">
+          <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/ImageProcessing/TestPlanszy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/ImageProcessing/Plansza.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-957">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        <state relative-caret-position="2001">
+          <caret line="75" column="17" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplaySceneLayout.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="493">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
           <caret line="21" column="86" selection-start-line="21" selection-start-column="86" selection-end-line="21" selection-end-column="86" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameplayScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+        <state relative-caret-position="739">
+          <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1669#1670#0" expanded="true" />
-            <element signature="e#1697#1698#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameLoop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nonogram/game/edu/Gameplay/GameScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="53" column="85" selection-start-line="53" selection-start-column="85" selection-end-line="53" selection-end-column="85" />
+        <state relative-caret-position="3843">
+          <caret line="200" column="58" selection-start-line="200" selection-start-column="58" selection-end-line="200" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
