@@ -22,9 +22,11 @@ public class GameSettings {
        // p = new Plansza();
        // p.losujplansze()
         p = new Plansza(15);
-        p.generujPlansze();
+        //p.generujPlansze();
 //        p.odwrocInfo();
-        //p.testowaPlansza("rozgwiazda");
+        p.testowaPlansza("piesek");
+        p.ustawInfo();
+        //p.ustawInfo();
         //end of tmp
         netColor = Color.PINK;
         squareColor = Color.BLACK;

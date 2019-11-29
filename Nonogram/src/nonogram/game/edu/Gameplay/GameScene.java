@@ -79,7 +79,7 @@ public class GameScene{
     private void drawCurrentSate(){
         for(int i = 0; i < gs.p.rozmiar; i++){
             for(int j = 0; j < gs.p.rozmiar; j++){
-                drawSquare(i, j);
+                drawSquare(i, j); //inverted cords
             }
         }
         net();
@@ -103,6 +103,11 @@ public class GameScene{
             }
 
             updateSquare(countX, countY);
+            for (int i=0; i<gs.p.rozmiar; i++) {
+                for (int j = 0; j < gs.p.rozmiar; j++)
+                    System.out.print(gs.p.fillState[i][j] + " ");
+                System.out.println();
+            }
             net();
             System.out.println(e.getX() + " " + e.getY());
 
@@ -118,10 +123,12 @@ public class GameScene{
             for (int j = 0; j < gs.p.rozmiar; j++){
                 if(gs.p.wypelnienie[i][j]){
                     if(gs.p.fillState[i][j] != 1){
+                        System.out.println(gs.p.fillState[0][7] + "    " + "i: " + i +" j: " + j + "true");
                         return false;
                     }
                 }else{
                     if(gs.p.fillState[i][j] == 1){
+                        System.out.println(gs.p.fillState[0][7] + "    " +"i: " + i +" j: " + j + "false");
                         return false;
                     }
                 }
@@ -141,11 +148,11 @@ public class GameScene{
 
     private void updateSquare(int countX, int countY){
         if(!(countX >= gs.p.rozmiar || countY >= gs.p.rozmiar)){
-            switch (gs.p.fillState[countX][countY]){
+            switch (gs.p.fillState[countY][countX]){
                 case 0:
                     gc.setFill(gs.squareColor);
                     gc.fillRect(countX*gs.BLOCK_SIZE, countY*gs.BLOCK_SIZE, gs.BLOCK_SIZE, gs.BLOCK_SIZE);
-                    gs.p.fillState[countX][countY] = 1;
+                    gs.p.fillState[countY][countX] = 1; //inverted cords
                     break;
                 case 1:
                     double x1 = countX*gs.BLOCK_SIZE, y1 =countY*gs.BLOCK_SIZE;
@@ -156,12 +163,12 @@ public class GameScene{
                     gc.setLineWidth(gs.crossWidth);
                     gc.strokeLine(x1 + gs.crossWidth, y1 + gs.crossWidth, x1 + gs.BLOCK_SIZE - gs.crossWidth, y1 + gs.BLOCK_SIZE - gs.crossWidth);
                     gc.strokeLine(x1 + gs.BLOCK_SIZE - gs.crossWidth, y1 + gs.crossWidth, x1 + gs.crossWidth, y1 + gs.BLOCK_SIZE - gs.crossWidth);
-                    gs.p.fillState[countX][countY] = 2;
+                    gs.p.fillState[countY][countX] = 2; //inverted cords
                     break;
                 case 2:
                     gc.setFill(gs.bgColor);
                     gc.fillRect(countX*gs.BLOCK_SIZE, countY*gs.BLOCK_SIZE, gs.BLOCK_SIZE, gs.BLOCK_SIZE);
-                    gs.p.fillState[countX][countY] = 0;
+                    gs.p.fillState[countY][countX] = 0; //inverted cords
                     break;
 
                 default:
@@ -171,7 +178,11 @@ public class GameScene{
     }
 
     private void drawSquare(int countX, int countY){
-        switch (gs.p.fillState[countX][countY]){
+        int readY = countY;
+        int readX = countX;
+        countX = readY;
+        countY = readX;
+        switch (gs.p.fillState[readX][readY]){ //inverted
             case 1:
                 gc.setFill(gs.squareColor);
                 gc.fillRect(countX*gs.BLOCK_SIZE, countY*gs.BLOCK_SIZE, gs.BLOCK_SIZE, gs.BLOCK_SIZE);

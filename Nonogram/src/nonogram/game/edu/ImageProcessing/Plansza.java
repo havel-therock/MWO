@@ -38,7 +38,7 @@ public class Plansza {
         for (int x = 0; x < p.rozmiar; x++){
           if (p.wypelnienie[x][y] && i.info[15+y][0] == 0) i.info[15+y][0]++;
           else if (p.wypelnienie[x][y]) i.info[15+y][z]++;
-          else if (!p.wypelnienie[x][y] && x != 0 && p.wypelnienie[x][y] != p.wypelnienie[x-1][y]) z++;
+          else if (!p.wypelnienie[x][y] && i.info[15+y][0] != 0 && p.wypelnienie[x][y] != p.wypelnienie[x-1][y]) z++;
         }}
 
       return i;
@@ -65,21 +65,28 @@ public class Plansza {
 //      }}
 
     // generowanie dla pierwszej (pionowej) po�owy
+    for(int i = 0; i < 2*rozmiar; i++){
+      for(int j = 0; j < (rozmiar+1)/2; j++){
+        this.info[i][j] = 0;
+      }
+    }
+
     for (int x = 0; x < this.rozmiar; x++){
       int z = 0;
       for (int y = this.rozmiar - 1; y >= 0; y--){
-        if (this.wypelnienie[x][y] && this.info[x][0] == 0) this.info[x][0]++;
-        else if (this.wypelnienie[x][y]) this.info[x][z]++;
-        else if (!this.wypelnienie[x][y] && this.info[x][0] != 0 && this.wypelnienie[x][y] != this.wypelnienie[x][y-1]) z++;
+          if (this.wypelnienie[x][y] && this.info[x][0] == 0)
+              this.info[x][0]++;
+          else if (this.wypelnienie[x][y]) this.info[x][z]++;
+          else if (!this.wypelnienie[x][y] && this.info[x][0] != 0 && this.wypelnienie[x][y] != this.wypelnienie[x][y+1]) z++;
       }}
 
     // generowanie dla drugiej (poziomej) po�owy
     for (int y = 0; y < this.rozmiar; y++){
       int z = 0;
-      for (int x = this.rozmiar - 1; x >= 0; x++){
-        if (this.wypelnienie[x][y] && this.info[15+y][0] == 0) this.info[15+y][0]++;
-        else if (this.wypelnienie[x][y]) this.info[15+y][z]++;
-        else if (!this.wypelnienie[x][y] && x != 0 && this.wypelnienie[x][y] != this.wypelnienie[x-1][y]) z++;
+      for (int x = this.rozmiar - 1; x >= 0; x--){
+        if (this.wypelnienie[x][y] && this.info[this.rozmiar+y][0] == 0) this.info[rozmiar+y][0]++;
+        else if (this.wypelnienie[x][y]) this.info[rozmiar+y][z]++;
+        else if (!this.wypelnienie[x][y] && this.info[rozmiar+y][0] != 0 && this.wypelnienie[x][y] != this.wypelnienie[x+1][y]) z++;
       }}
   }
 
@@ -697,6 +704,15 @@ public class Plansza {
 
 
       break;
+        case "test":
+          // Plansza(15);
+          size = 3;
+          this.rozmiar = size;
+          this.info = new int [2*size][(size+1)/2];
+          this.wypelnienie = new boolean [size][size];
+          this.wypelnienie[1][1] = true;
+          this.wypelnienie[1][2] = true;
+          break;
       default:
       break;
 
