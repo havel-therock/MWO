@@ -6,13 +6,13 @@ import nonogram.game.edu.ImageProcessing.Plansza;
 public class GameSettings {
 
     public Plansza p;
-    Color netColor;
-    Color squareColor;
-    Color bgColor;
-    Color crossColor;
-    Color infoColor;
-    double netWidth;
-    double crossWidth;
+    public Color netColor;
+    public Color squareColor;
+    public Color bgColor;
+    public Color crossColor;
+    public Color infoColor;
+    public double netWidth;
+    public double crossWidth;
     int BLOCK_SIZE;
 
     public GameSettings(){
