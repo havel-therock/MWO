@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -32,6 +33,7 @@ public class GameScene{
         BorderPane root = Loader.load();
         root.getStylesheets().add("nonogram/game/edu/Menu/Viper.css");
         boardInit(root);
+        buttonsInit(Loader);
         resizeBoard();
         updateBoard();
 
@@ -48,6 +50,17 @@ public class GameScene{
         plainBoard();
         drawInfo();
     }
+
+    private void buttonsInit(FXMLLoader Loader){
+        Button save = (Button)Loader.getNamespace().get("save");
+        Button exit = (Button)Loader.getNamespace().get("exit");
+        exit.setOnAction(e -> window.setScene(menu));
+        save.setOnAction(e -> {
+            //serializacja obiektu GameSettings
+        });
+    }
+
+
 
     private void setBoardSize(){
         int min  = (int) Math.min(window.getWidth() - 50, window.getHeight() - 150); //offset 50 to not put canvas over buttons
