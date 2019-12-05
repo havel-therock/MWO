@@ -40,6 +40,13 @@ public class MainMenu extends Application {
         Button buttonStatystyki = new Button("Statystyki");
         buttonStatystyki.setOnAction(e -> window.setScene(scene7));
         Button buttonSzybkaGra = new Button("Szybka gra");
+        buttonSzybkaGra.setOnAction(e -> {
+            try {
+                new GameScene(window, new GameSettings(), MenuScene);
+            }catch (Exception ex){
+
+            }
+        });
         buttonSzybkaGra.setOnAction(e -> window.setScene(scene5));
         Menu.getChildren().addAll(buttonNowaGra,buttonWczytajGre,buttonStatystyki,  buttonSzybkaGra);
         Menu.setPadding(new Insets(10, 0, 0, 0));
@@ -58,7 +65,19 @@ public class MainMenu extends Application {
         Button buttonOpcjeRozgrywki = new Button("Opcje rozgrywki");
         buttonOpcjeRozgrywki.setOnAction(e -> window.setScene(scene8));
         Button buttonWyborRozmiaru = new Button("Wybór rozmiaru planszy");
-        buttonWyborRozmiaru.setOnAction(e -> window.setScene(scene4));
+        buttonWyborRozmiaru.setOnAction(e -> {
+            try {
+
+                Plansza ps  = new Plansza(10);
+
+                GameSettings gs = new GameSettings();
+                gs.p = ps;
+                new GameScene(window, gs, MenuScene);
+            }catch (Exception ex){
+
+            }
+
+        });
         NowaGra.getChildren().addAll(buttonPowrotdoMenu1,buttonWyborRozmiaru,buttonOpcjeRozgrywki);
         NowaGra.setPadding(new Insets(10, 0, 0, 0));
         NowaGra.setSpacing(15);
