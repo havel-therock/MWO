@@ -56,6 +56,7 @@ public class GameScene{
         Button exit = (Button)Loader.getNamespace().get("exit");
         exit.setOnAction(e -> window.setScene(menu));
         save.setOnAction(e -> {
+
             //serializacja obiektu GameSettings
         });
     }
@@ -67,7 +68,7 @@ public class GameScene{
         //calculate offset for info
         // get max of two offsets = maxoff
         //offset == number in row?
-        int blockInCanvas = gs.p.rozmiar + gs.p.zwrocDlugosc();//maxoff;
+        int blockInCanvas = gs.p.rozmiar + 12;//gs.p.zwrocDlugosc();//maxoff;
         gs.BLOCK_SIZE =  min/blockInCanvas;//gs.p.rozmiar; // divide over maxoff + gs.p.rozmiar
         canvas.setWidth(gs.BLOCK_SIZE * blockInCanvas);//gs.p.rozmiar); // + width offset for numbers with informations
         canvas.setHeight(gs.BLOCK_SIZE * blockInCanvas);//gs.p.rozmiar); // + height offset for numbers with informations

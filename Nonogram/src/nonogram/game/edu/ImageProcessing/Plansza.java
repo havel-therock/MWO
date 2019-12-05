@@ -11,8 +11,10 @@ public class Plansza {
     public int info[][];
     public boolean wypelnienie[][];
     public int fillState[][]; // 0 - bg 1 - square 2 - cross
+    Random generator;
 
     public Plansza(int size) {
+        generator = new Random();
         this.rozmiar = size;
         this.info = new int [2*size][(size+1)/2];
         this.wypelnienie = new boolean [size][size];
@@ -98,7 +100,6 @@ public class Plansza {
 
     public void generujPlansze()
     {
-      Random generator = new Random();
       int size = 8 + Math.abs(generator.nextInt()%17);
       System.out.println(size);
       this.rozmiar = size;
@@ -144,12 +145,14 @@ public class Plansza {
 
     public int zwrocDlugosc()
     {
+      System.out.println("zaczynam funckje");
       int dl = 0;
-      for (int i=0; i<this.rozmiar; i++) {
+      for (int i=0; i<this.rozmiar*2; i++) {
         int max_dl = 0;
         while (this.info[i][max_dl] != 0) max_dl++;
         if (max_dl - 1 > dl) dl = max_dl - 1;
       }
+      System.out.println(dl);
       return dl;
     }
 
@@ -183,13 +186,18 @@ public class Plansza {
       }
     }
 
-    public void testowaPlansza(String c) {
+    public void getRandomBoard(){
+      testowaPlansza(generator.nextInt(3));
+
+    }
+
+    public void testowaPlansza(int c) {
 
       int size;
       switch(c)
       {
 
-        case "rozgwiazda":
+        case 0:
         	   // Plansza(15);
             size = 15;
             this.rozmiar = size;
@@ -411,7 +419,7 @@ public class Plansza {
 
         break;
 
-    case "piesek":
+    case 1:
 
       size = 15;
       this.rozmiar = size;
@@ -721,7 +729,7 @@ public class Plansza {
 
 
       break;
-        case "test":
+        case 2:
           // Plansza(15);
           size = 4;
           this.rozmiar = size;

@@ -87,7 +87,17 @@ public class MainMenu extends Application {
 
         });
         Button buttonStartujRozgrywke = new Button("Start!");
-        buttonStartujRozgrywke.setOnAction(e -> window.setScene(scene5));
+        buttonStartujRozgrywke.setOnAction(e -> {
+            try {
+                Plansza ptest = new Plansza(15);
+                gs.p = ptest;
+                gs.p.getRandomBoard();
+                gs.p.ustawInfo();
+                new GameScene(window, gs, MenuScene);
+            }catch (Exception ex){
+
+            }
+        });
         NowaGra.getChildren().addAll(buttonPowrotdoMenu1,buttonWyborRozmiaru,buttonOpcjeRozgrywki,buttonStartujRozgrywke);
         NowaGra.setPadding(new Insets(10, 0, 0, 0));
         NowaGra.setSpacing(15);
