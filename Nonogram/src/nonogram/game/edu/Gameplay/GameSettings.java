@@ -24,7 +24,8 @@ public class GameSettings {
         p = new Plansza(15);
         //p.generujPlansze();
 //        p.odwrocInfo();
-        p.testowaPlansza("piesek");
+        //p.testowaPlansza("piesek");
+        p.generujPlansze();
         p.ustawInfo();
         //end of tmp
         netColor = Color.PINK;

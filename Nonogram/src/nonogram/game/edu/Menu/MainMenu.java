@@ -13,7 +13,6 @@ import nonogram.game.edu.Gameplay.GameScene;
 import nonogram.game.edu.Gameplay.GameSettings;
 import nonogram.game.edu.ImageProcessing.Plansza;
 
-import static com.sun.org.apache.xalan.internal.utils.SecuritySupport.getResourceAsStream;
 
 
 public class MainMenu extends Application {
