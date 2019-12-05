@@ -9,6 +9,9 @@ import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
+import nonogram.game.edu.Gameplay.GameScene;
+import nonogram.game.edu.Gameplay.GameSettings;
+import nonogram.game.edu.ImageProcessing.Plansza;
 
 import static com.sun.org.apache.xalan.internal.utils.SecuritySupport.getResourceAsStream;
 
@@ -42,12 +45,12 @@ public class MainMenu extends Application {
         Button buttonSzybkaGra = new Button("Szybka gra");
         buttonSzybkaGra.setOnAction(e -> {
             try {
+
                 new GameScene(window, new GameSettings(), MenuScene);
             }catch (Exception ex){
 
             }
         });
-        buttonSzybkaGra.setOnAction(e -> window.setScene(scene5));
         Menu.getChildren().addAll(buttonNowaGra,buttonWczytajGre,buttonStatystyki,  buttonSzybkaGra);
         Menu.setPadding(new Insets(10, 0, 0, 0));
         Menu.setSpacing(15);

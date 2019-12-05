@@ -28,7 +28,9 @@ public class GameScene{
         this.gs = gs;
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(this.getClass().getResource("GameplaySceneLayout.fxml"));
+
         BorderPane root = Loader.load();
+        root.getStylesheets().add("nonogram/game/edu/Menu/Viper.css");
         boardInit(root);
         resizeBoard();
         updateBoard();
@@ -48,7 +50,7 @@ public class GameScene{
     }
 
     private void setBoardSize(){
-        int min  = (int) Math.min(window.getWidth() - 50, window.getHeight() - 100); //offset 50 to not put canvas over buttons
+        int min  = (int) Math.min(window.getWidth() - 50, window.getHeight() - 150); //offset 50 to not put canvas over buttons
         //calculate offset for info
         // get max of two offsets = maxoff
         //offset == number in row?
