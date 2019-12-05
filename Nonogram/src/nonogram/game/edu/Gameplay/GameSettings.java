@@ -26,7 +26,6 @@ public class GameSettings {
 //        p.odwrocInfo();
         p.testowaPlansza("piesek");
         p.ustawInfo();
-        //p.ustawInfo();
         //end of tmp
         netColor = Color.PINK;
         squareColor = Color.BLACK;

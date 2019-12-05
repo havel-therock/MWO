@@ -46,26 +46,32 @@ public class Plansza {
 
   public void ustawInfo()
   {
-//    // generowanie dla pierwszej (pionowej) po�owy
-//    for (int x = 0; x < this.rozmiar; x++){
-//      int z = 0;
-//      for (int y = 0; y < this.rozmiar; y++){
-//        if (this.wypelnienie[x][y] && this.info[x][0] == 0) this.info[x][0]++;
-//        else if (this.wypelnienie[x][y]) this.info[x][z]++;
-//        else if (!this.wypelnienie[x][y] && this.info[x][0] != 0 && this.wypelnienie[x][y] != this.wypelnienie[x][y-1]) z++;
-//      }}
-//
-//    // generowanie dla drugiej (poziomej) po�owy
-//    for (int y = 0; y < this.rozmiar; y++){
-//      int z = 0;
-//      for (int x = 0; x < this.rozmiar; x++){
-//        if (this.wypelnienie[x][y] && this.info[15+y][0] == 0) this.info[15+y][0]++;
-//        else if (this.wypelnienie[x][y]) this.info[15+y][z]++;
-//        else if (!this.wypelnienie[x][y] && x != 0 && this.wypelnienie[x][y] != this.wypelnienie[x-1][y]) z++;
-//      }}
+
+    for(int i = 0; i < 2*rozmiar; i++){
+      for(int j = 0; j < (rozmiar+1)/2; j++){
+        this.info[i][j] = 0;
+      }
+    }
+    // generowanie dla pierwszej (pionowej) po�owy
+    for (int x = 0; x < this.rozmiar; x++){
+      int z = 0;
+      for (int y = 0; y < this.rozmiar; y++){
+        if (this.wypelnienie[x][y] && this.info[x][0] == 0) this.info[x][0]++;
+        else if (this.wypelnienie[x][y]) this.info[x][z]++;
+        else if (!this.wypelnienie[x][y] && this.info[x][0] != 0 && this.wypelnienie[x][y] != this.wypelnienie[x][y-1]) z++;
+      }}
+
+    // generowanie dla drugiej (poziomej) po�owy
+    for (int y = 0; y < this.rozmiar; y++){
+      int z = 0;
+      for (int x = 0; x < this.rozmiar; x++){
+       if (this.wypelnienie[x][y] && this.info[rozmiar+y][0] == 0) this.info[rozmiar+y][0]++;
+        else if (this.wypelnienie[x][y]) this.info[rozmiar+y][z]++;
+        else if (!this.wypelnienie[x][y] && x != 0 && this.wypelnienie[x][y] != this.wypelnienie[x-1][y]) z++;
+      }}
 
     // generowanie dla pierwszej (pionowej) po�owy
-    for(int i = 0; i < 2*rozmiar; i++){
+/*    for(int i = 0; i < 2*rozmiar; i++){
       for(int j = 0; j < (rozmiar+1)/2; j++){
         this.info[i][j] = 0;
       }
@@ -87,7 +93,7 @@ public class Plansza {
         if (this.wypelnienie[x][y] && this.info[this.rozmiar+y][0] == 0) this.info[rozmiar+y][0]++;
         else if (this.wypelnienie[x][y]) this.info[rozmiar+y][z]++;
         else if (!this.wypelnienie[x][y] && this.info[rozmiar+y][0] != 0 && this.wypelnienie[x][y] != this.wypelnienie[x+1][y]) z++;
-      }}
+      }}*/
   }
 
     public void generujPlansze()
@@ -706,12 +712,17 @@ public class Plansza {
       break;
         case "test":
           // Plansza(15);
-          size = 3;
+          size = 4;
           this.rozmiar = size;
           this.info = new int [2*size][(size+1)/2];
           this.wypelnienie = new boolean [size][size];
-          this.wypelnienie[1][1] = true;
+          this.wypelnienie[0][0] = true;
+          this.wypelnienie[0][1] = true;
+          this.wypelnienie[0][3] = true;
+          this.wypelnienie[1][0] = true;
+          this.wypelnienie[3][0] = true;
           this.wypelnienie[1][2] = true;
+
           break;
       default:
       break;
