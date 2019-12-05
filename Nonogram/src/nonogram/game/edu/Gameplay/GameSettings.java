@@ -36,4 +36,9 @@ public class GameSettings {
         netWidth = 2.0;
         BLOCK_SIZE = 40;
     }
+
+    public void setBoard(Plansza p){
+        this.p = p;
+        this.p.ustawInfo();
+    }
 }
