@@ -1,5 +1,5 @@
 package nonogram.game.edu.Menu;
-
+import javafx.scene.paint.Color;
 import javafx.application.*;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -13,6 +13,8 @@ import nonogram.game.edu.Gameplay.GameScene;
 import nonogram.game.edu.Gameplay.GameSettings;
 import nonogram.game.edu.ImageProcessing.Plansza;
 
+import java.awt.*;
+
 import static com.sun.org.apache.xalan.internal.utils.SecuritySupport.getResourceAsStream;
 
 
@@ -21,7 +23,7 @@ public class MainMenu extends Application {
 
     Stage window;
     Scene MenuScene, scene2, scene3, scene4, scene5, scene6,scene7, scene8;
-
+    GameSettings gs;
     public static void main(String[] args) {
         launch(args);
 
@@ -29,6 +31,7 @@ public class MainMenu extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        gs = new GameSettings();
         window = primaryStage;
         Parent fxml = FXMLLoader.load(getClass().getResource("MainMenuLayout.fxml"));
 
@@ -37,7 +40,12 @@ public class MainMenu extends Application {
 
         Menu.setAlignment(Pos.CENTER);
         Button buttonNowaGra = new Button("Nowa Gra");
-        buttonNowaGra.setOnAction(e -> window.setScene(scene2));
+        buttonNowaGra.setOnAction(e -> {
+
+
+            gs = new GameSettings();
+            window.setScene(scene2);
+        });
         Button buttonWczytajGre = new Button("Wczytaj Gre");
         buttonWczytajGre.setOnAction(e -> window.setScene(scene3));
         Button buttonStatystyki = new Button("Statystyki");
@@ -68,6 +76,7 @@ public class MainMenu extends Application {
         Button buttonOpcjeRozgrywki = new Button("Opcje rozgrywki");
         buttonOpcjeRozgrywki.setOnAction(e -> window.setScene(scene8));
         Button buttonWyborRozmiaru = new Button("Wybór rozmiaru planszy");
+
         buttonWyborRozmiaru.setOnAction(e -> {
             try {
 
@@ -81,7 +90,9 @@ public class MainMenu extends Application {
             }
 
         });
-        NowaGra.getChildren().addAll(buttonPowrotdoMenu1,buttonWyborRozmiaru,buttonOpcjeRozgrywki);
+        Button buttonStartujRozgrywke = new Button("Start!");
+        buttonStartujRozgrywke.setOnAction(e -> window.setScene(scene5));
+        NowaGra.getChildren().addAll(buttonPowrotdoMenu1,buttonWyborRozmiaru,buttonOpcjeRozgrywki,buttonStartujRozgrywke);
         NowaGra.setPadding(new Insets(10, 0, 0, 0));
         NowaGra.setSpacing(15);
         NowaGra.getStylesheets().add("nonogram/game/edu/Menu/Viper.css");
@@ -114,7 +125,16 @@ public class MainMenu extends Application {
         OpcjeRozgrywki.setAlignment(Pos.TOP_CENTER);
         Button buttonPowrotdoMenu4 = new Button("Powrót do Menu");
         buttonPowrotdoMenu4.setOnAction(e -> window.setScene(MenuScene));
-        OpcjeRozgrywki.getChildren().addAll(buttonPowrotdoMenu4);
+        Button red = new Button("Red");
+        red.setOnAction(e ->{
+
+            GameSettings gs = new GameSettings();
+            gs.squareColor = Color.RED;
+        });
+
+
+
+        OpcjeRozgrywki.getChildren().addAll(buttonPowrotdoMenu4,red);
         OpcjeRozgrywki.setPadding(new Insets(10, 0, 0, 0));
         scene8 = new Scene(OpcjeRozgrywki, 800, 600);
         OpcjeRozgrywki.getStylesheets().add("nonogram/game/edu/Menu/Viper.css");
