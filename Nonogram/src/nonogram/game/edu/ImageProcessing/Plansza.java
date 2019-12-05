@@ -142,6 +142,17 @@ public class Plansza {
       return (sum_poziom == sum_pion);
     }
 
+    public int zwrocDlugosc()
+    {
+      int dl = 0;
+      for (int i=0; i<this.rozmiar; i++) {
+        int max_dl = 0;
+        while (this.info[i][max_dl] != 0) max_dl++;
+        if (max_dl - 1 > dl) dl = max_dl - 1;
+      }
+      return dl;
+    }
+
     public void odwrocInfo()
     {
       for (int i=0; i<2*this.rozmiar; i++) {
