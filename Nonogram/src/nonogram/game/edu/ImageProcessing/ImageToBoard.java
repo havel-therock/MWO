@@ -15,7 +15,7 @@ public class ImageToBoard
     private BufferedImage im2=null;
     private WritableRaster raster2=null;
     private int dimension = 0;
-    private int board[][] = null;
+    public int board[][] = null;
     private int width = 0;
     private int height = 0;
     private int pixels[] = new int[3];

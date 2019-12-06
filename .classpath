@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="Nonogram/src"/>
+	<classpathentry kind="lib" path="C:/Users/sebastian/Desktop/Sebastian/music/java-json.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
