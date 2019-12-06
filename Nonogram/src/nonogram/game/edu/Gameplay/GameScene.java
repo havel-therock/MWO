@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
@@ -40,7 +41,6 @@ public class GameScene{
         buttonsInit(Loader);
         resizeBoard();
         updateBoard();
-
     }
 
     private void boardInit(BorderPane root){
@@ -52,6 +52,7 @@ public class GameScene{
 
         setBoardSize();
         plainBoard();
+        drawCurrentSate(); // for read play (continue option)
         drawInfo();
     }
 
@@ -156,6 +157,11 @@ public class GameScene{
 
             if(checkWin()){
                 System.out.println("Gratulacje wygrałeś");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Nonogram");
+                alert.setHeaderText("Gratulacje wygrałeś!!!");
+                alert.setContentText("Dziękujemy za udział w naszej grze.");
+                alert.showAndWait();
                 window.setScene(menu);
             }
         });
