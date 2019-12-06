@@ -56,7 +56,7 @@ public class GameScene{
         Button exit = (Button)Loader.getNamespace().get("exit");
         exit.setOnAction(e -> window.setScene(menu));
         save.setOnAction(e -> {
-
+            /// MIKOŁAJ TUTAJ WRZUĆ co sie ma dziac po nacisnieciu przycisku SAVE !!!!!!!!!!!!!
             //serializacja obiektu GameSettings
         });
     }

@@ -108,7 +108,14 @@ public class MainMenu extends Application {
         VBox WczytajGre = new VBox();
         WczytajGre.setAlignment(Pos.TOP_CENTER);
         Button buttonPowrotdoMenu2 = new Button("Powrót do Menu");
-        buttonPowrotdoMenu2.setOnAction(e -> window.setScene(MenuScene));
+        buttonPowrotdoMenu2.setOnAction(e -> {
+            try {
+                /// GameSettings gs /// MIKOLAJ wczytanie!!!!!!
+                new GameScene(window, gs, MenuScene);
+            }catch (Exception ex){
+
+            }
+        });
         WczytajGre.getChildren().addAll(buttonPowrotdoMenu2);
         WczytajGre.getStylesheets().add("nonogram/game/edu/Menu/Viper.css");
         WczytajGre.setPadding(new Insets(10, 0, 0, 0));
