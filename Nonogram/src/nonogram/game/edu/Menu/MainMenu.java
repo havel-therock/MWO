@@ -15,7 +15,12 @@ import nonogram.game.edu.ImageProcessing.Plansza;
 
 import org.json.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
+
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileSystemView;
 
 
 public class MainMenu extends Application {
@@ -24,7 +29,11 @@ public class MainMenu extends Application {
     Stage window;
     Scene MenuScene, scene2, scene3, scene4, scene5, scene6,scene7, scene8;
     GameSettings gs;
+    JFileChooser jfc;
+	File selectedFile;
+	String path;
     public static void main(String[] args) {
+    	
         launch(args);
 
     }
@@ -116,8 +125,44 @@ public class MainMenu extends Application {
 
         buttonWyborRozmiaru.setOnAction(e -> {
             try {
-
-                Plansza ps  = new Plansza(10);
+            	new OpenL();
+            	int sizeBoard = 5;
+            	int ton = 80;
+            	int board[][];
+            	
+            	while(true)
+        		{
+        			nonogram.game.edu.ImageProcessing.ImageToBoard imgtb = new nonogram.game.edu.ImageProcessing.ImageToBoard(path, sizeBoard, ton);
+        			
+        			if(imgtb.checkBoard())
+        			{
+        				System.out.println("x");
+        				board = imgtb.board;
+        				break;
+        			}
+        			else
+        			{
+        				System.out.println("y");
+        				ton += 10;
+        			}
+        		}
+            	
+            	
+            	
+            	
+            	
+                Plansza ps  = new Plansza(sizeBoard);
+                for(int i = 0; i < sizeBoard; i++)
+                {
+                	for(int j = 0; j < sizeBoard; j++)
+                	{
+                		if(board[i][j] == 0)
+                		{
+                			ps.wypelnienie[j][i] = true;
+                		}
+                	}
+                }
+                ps.ustawInfo();
 
                 GameSettings gs = new GameSettings();
                 gs.p = ps;
@@ -172,11 +217,13 @@ public class MainMenu extends Application {
         OpcjeRozgrywki.setAlignment(Pos.TOP_CENTER);
         Button buttonPowrotdoMenu4 = new Button("Powrót do Menu");
         buttonPowrotdoMenu4.setOnAction(e -> window.setScene(MenuScene));
-        Button red = new Button("Red");
+        Button red = new Button("Red"); 
         red.setOnAction(e ->{
 
             GameSettings gs = new GameSettings();
             gs.squareColor = Color.RED;
+            
+        	
         });
 
 
@@ -190,7 +237,9 @@ public class MainMenu extends Application {
         VBox WyborRozmiaru = new VBox();
         WyborRozmiaru.setAlignment(Pos.CENTER);
         Button buttonWczytanieObrazka = new Button("Wczytanie obrazka");
-        buttonWczytanieObrazka.setOnAction(e -> window.setScene(scene6));
+        buttonWczytanieObrazka.setOnAction(e -> {
+        window.setScene(scene6);
+        });
         Button buttonLosowanieObrazka = new Button("Losowanie obrazka");
         buttonLosowanieObrazka.setOnAction(e -> window.setScene(scene6));
         Button buttonPowrotdoMenu5 = new Button("Powrót do Menu");
@@ -223,5 +272,21 @@ public class MainMenu extends Application {
         window.getIcons().add(new Image(getClass().getResourceAsStream("logo.jpg")));
         window.show();
     }
+    
+    class OpenL //implements ActionListener
+	{
+		//public void actionPerformed(ActionEvent e)
+		{	    	
+			jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+			int returnValue = jfc.showOpenDialog(null);
+
+			if (returnValue == JFileChooser.APPROVE_OPTION)
+			{
+				selectedFile = jfc.getSelectedFile();
+				System.out.println(selectedFile.getAbsolutePath());
+				path = selectedFile.getAbsolutePath();
+			}
+		}
+	}
 
 }

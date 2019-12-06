@@ -62,28 +62,34 @@ public class GameScene{
         save.setOnAction(e -> {
             //serializacja obiektu GameSettings
             JSONObject plansza = new JSONObject();
-            plansza.put("rozmiar", gs.p.rozmiar);
-            plansza.put("info", gs.p.info);
-            plansza.put("wypelnienie", gs.p.wypelnienie);
-            plansza.put("fillState", gs.p.fillState);
-            JSONObject gameSettings = new JSONObject();
-            gameSettings.put("netColor", gs.netColor);
-            gameSettings.put("squareColor", gs.squareColor);
-            gameSettings.put("bgColor", gs.bgColor);
-            gameSettings.put("crossColor", gs.crossColor);
-            gameSettings.put("infoColor", gs.infoColor);
-            gameSettings.put("netWidth", gs.netWidth);
-            gameSettings.put("crossWidth", gs.crossWidth);
-            gameSettings.put("BLOCK_SIZE", gs.BLOCK_SIZE);
-            gameSettings.put("plansza", plansza);
+            try {
+            	 plansza.put("info", gs.p.info);
+                 plansza.put("wypelnienie", gs.p.wypelnienie);
+                 plansza.put("fillState", gs.p.fillState);
+                 JSONObject gameSettings = new JSONObject();
+                 gameSettings.put("netColor", gs.netColor);
+                 gameSettings.put("squareColor", gs.squareColor);
+                 gameSettings.put("bgColor", gs.bgColor);
+                 gameSettings.put("crossColor", gs.crossColor);
+                 gameSettings.put("infoColor", gs.infoColor);
+                 gameSettings.put("netWidth", gs.netWidth);
+                 gameSettings.put("crossWidth", gs.crossWidth);
+                 gameSettings.put("BLOCK_SIZE", gs.BLOCK_SIZE);
+                 gameSettings.put("plansza", plansza);
 
-            System.out.println(gameSettings.toString());
-
-            try (FileWriter file = new FileWriter("Nonogram/src/nonogram/game/edu/Data/last_game.txt")) {
-                file.write(gameSettings.toString());
-            } catch (IOException ex) {
+                 System.out.println(gameSettings.toString());
+                 try (FileWriter file = new FileWriter("Nonogram/src/nonogram/game/edu/Data/last_game.txt")) {
+                     file.write(gameSettings.toString());
+                 } 
+			} catch (JSONException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+            catch (IOException ex) {
                 ex.printStackTrace();
             }
+
+            
 
         });
     }
