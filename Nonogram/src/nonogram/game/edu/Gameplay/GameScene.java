@@ -64,6 +64,7 @@ public class GameScene{
             //serializacja obiektu GameSettings
             JSONObject plansza = new JSONObject();
             try {
+                 plansza.put("rozmiar", gs.p.rozmiar);
             	 plansza.put("info", gs.p.info);
                  plansza.put("wypelnienie", gs.p.wypelnienie);
                  plansza.put("fillState", gs.p.fillState);
@@ -79,7 +80,7 @@ public class GameScene{
                  gameSettings.put("plansza", plansza);
 
                  System.out.println(gameSettings.toString());
-                 try (FileWriter file = new FileWriter("Nonogram/src/nonogram/game/edu/Data/last_game.txt")) {
+                 try (FileWriter file = new FileWriter("last_game.txt")) {
                      file.write(gameSettings.toString());
                  } 
 			} catch (JSONException e1) {
@@ -264,7 +265,7 @@ public class GameScene{
 
     private void drawInfo(){
         gc.setFill(gs.infoColor);
-        gc.setFont(new Font("Verdana", gs.BLOCK_SIZE*0.75));
+        gc.setFont(new Font("Verdana", gs.BLOCK_SIZE*0.5)); //0.75
         for(int i = 0; i < gs.p.rozmiar; i++){
             for(int j = 0; j < gs.p.info[i].length; j++){
                 if(gs.p.info[i][j] == 0){

@@ -111,9 +111,12 @@ public class Plansza {
         for (int j=0; j<size; j++)
         {
           Random gen = new Random();
-          boolean v = gen.nextBoolean();
+          int v = gen.nextInt(7);
           //System.out.println(v);
-          this.wypelnienie[i][j] = v;
+          if(v < 4)
+            this.wypelnienie[i][j] = true;
+          else
+            this.wypelnienie[i][j] = false;
         }
       this.ustawInfo();
     }

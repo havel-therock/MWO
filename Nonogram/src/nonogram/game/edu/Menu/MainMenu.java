@@ -59,7 +59,7 @@ public class MainMenu extends Application {
         buttonWczytajGre.setOnAction(e -> {
             InputStream is = null;
             try {
-                is = new FileInputStream("Nonogram/src/nonogram/game/edu/Data/last_game.txt");
+                is = new FileInputStream("last_game.txt");
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
             }
@@ -89,10 +89,36 @@ public class MainMenu extends Application {
             JSONObject plansza = new JSONObject(gameSettings, arg);
             String[] arg2 = {"rozmiar"};
             JSONObject rozmiar = new JSONObject(plansza, arg2);
-            System.out.println(plansza);
+            //System.out.println(plansza);
             int size = plansza.getJSONObject("plansza").getInt("rozmiar");
-            System.out.println(gameSettings.getString("netColor"));
-            window.setScene(scene3);
+            //System.out.println(gameSettings.getString("netColor"));
+            gs = new GameSettings();
+
+            gs.p.rozmiar = plansza.getJSONObject("plansza").getInt("rozmiar");
+            for (int i=0; i<2*gs.p.rozmiar; i++)
+                for (int j=0; j<(gs.p.rozmiar)/2; j++)
+                    gs.p.info[i][j] = plansza.getJSONObject("plansza").getJSONArray("info").getJSONArray(i).getInt(j);
+            for (int i=0; i<gs.p.rozmiar; i++)
+                for (int j=0; j<gs.p.rozmiar; j++)
+                    gs.p.fillState[i][j] = plansza.getJSONObject("plansza").getJSONArray("fillState").getJSONArray(i).getInt(j);
+            for (int i=0; i<gs.p.rozmiar; i++)
+                for (int j=0; j<gs.p.rozmiar; j++)
+                    gs.p.wypelnienie[i][j] = plansza.getJSONObject("plansza").getJSONArray("wypelnienie").getJSONArray(i).getBoolean(j);
+            gs.netColor = Color.PINK;
+            gs.squareColor = Color.BLACK;
+            gs.bgColor = Color.WHITE;
+            gs.crossColor = Color.BLACK;
+            gs.infoColor = Color.BLACK;
+            gs.netWidth = gameSettings.getDouble("netWidth");
+            gs.crossWidth = gameSettings.getDouble("crossWidth");
+            //System.out.println(plansza.getJSONObject("plansza").getJSONArray("fillState"));
+
+            try {
+                gs.p.ustawInfo();
+                new GameScene(window, gs, MenuScene);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         });
         Button buttonStatystyki = new Button("Statystyki");
         buttonStatystyki.setOnAction(e -> window.setScene(scene7));
@@ -121,12 +147,12 @@ public class MainMenu extends Application {
         buttonPowrotdoMenu1.setOnAction(e -> window.setScene(MenuScene));
         Button buttonOpcjeRozgrywki = new Button("Opcje rozgrywki");
         buttonOpcjeRozgrywki.setOnAction(e -> window.setScene(scene8));
-        Button buttonWyborRozmiaru = new Button("Wybór rozmiaru planszy");
+        Button buttonWyborRozmiaru = new Button("Wybór obrazka");
 
         buttonWyborRozmiaru.setOnAction(e -> {
             try {
             	new OpenL();
-            	int sizeBoard = 5;
+            	int sizeBoard = 5; // change for bigger jpg image
             	int ton = 80;
             	int board[][];
             	
@@ -146,10 +172,7 @@ public class MainMenu extends Application {
         				ton += 10;
         			}
         		}
-            	
-            	
-            	
-            	
+
             	
                 Plansza ps  = new Plansza(sizeBoard);
                 for(int i = 0; i < sizeBoard; i++)
@@ -283,7 +306,7 @@ public class MainMenu extends Application {
     class OpenL //implements ActionListener
 	{
 		//public void actionPerformed(ActionEvent e)
-		{	    	
+		OpenL(){
 			jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 			int returnValue = jfc.showOpenDialog(null);
 
