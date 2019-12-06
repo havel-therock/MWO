@@ -13,6 +13,10 @@ import nonogram.game.edu.Gameplay.GameScene;
 import nonogram.game.edu.Gameplay.GameSettings;
 import nonogram.game.edu.ImageProcessing.Plansza;
 
+import org.json.*;
+
+import java.io.*;
+
 
 public class MainMenu extends Application {
 
@@ -43,7 +47,44 @@ public class MainMenu extends Application {
             window.setScene(scene2);
         });
         Button buttonWczytajGre = new Button("Wczytaj Gre");
-        buttonWczytajGre.setOnAction(e -> window.setScene(scene3));
+        buttonWczytajGre.setOnAction(e -> {
+            InputStream is = null;
+            try {
+                is = new FileInputStream("Nonogram/src/nonogram/game/edu/Data/last_game.txt");
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
+            BufferedReader buf = new BufferedReader(new InputStreamReader(is));
+            String line = null;
+            try {
+                line = buf.readLine();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            StringBuilder sb = new StringBuilder();
+
+            while(line != null){
+                sb.append(line).append("\n");
+                try {
+                    line = buf.readLine();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            String fileAsString = sb.toString();
+            JSONObject gameSettings = new JSONObject(fileAsString);
+            System.out.println(gameSettings);
+
+            String[] arg = {"plansza"};
+            JSONObject plansza = new JSONObject(gameSettings, arg);
+            String[] arg2 = {"rozmiar"};
+            JSONObject rozmiar = new JSONObject(plansza, arg2);
+            System.out.println(plansza);
+            int size = plansza.getJSONObject("plansza").getInt("rozmiar");
+            System.out.println(gameSettings.getString("netColor"));
+            window.setScene(scene3);
+        });
         Button buttonStatystyki = new Button("Statystyki");
         buttonStatystyki.setOnAction(e -> window.setScene(scene7));
         Button buttonSzybkaGra = new Button("Szybka gra");
